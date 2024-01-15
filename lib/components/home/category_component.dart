@@ -22,8 +22,8 @@ class CategoryComponent extends StatelessWidget {
             decoration: BoxDecoration(
                 color: color.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(15)),
-            height: MediaQuery.sizeOf(context).height / 16,
-            width: MediaQuery.sizeOf(context).width / 6,
+            height: MediaQuery.sizeOf(context).height / 14,
+            width: MediaQuery.sizeOf(context).width / 4,
             child: Icon(
               icon,
               color: color,
@@ -33,6 +33,7 @@ class CategoryComponent extends StatelessWidget {
             title,
             style: TextStyle(
               fontWeight: FontWeight.w800,
+              fontSize: 18
             ),
           )
         ],
