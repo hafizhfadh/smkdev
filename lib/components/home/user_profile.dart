@@ -23,16 +23,20 @@ class UserProfile extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              CircleAvatar(
-                child: Icon(Icons.shopping_cart),
-              ),
-              CircleAvatar(
-                child: Image.network(
-                    "https://ui-avatars.com/api/?background=0D8ABC&color=fff"),
-              ),
-            ],
+          Container(
+            width: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircleAvatar(
+                  child: Icon(Icons.shopping_cart),
+                ),
+                CircleAvatar(
+                  child: Image.network(
+                      "https://ui-avatars.com/api/?background=0D8ABC&color=fff"),
+                ),
+              ],
+            ),
           ),
         ],
       ),
