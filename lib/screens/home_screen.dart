@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smkdev/components/home/category_component.dart';
 import 'package:smkdev/components/home/search_component.dart';
 import 'package:smkdev/components/home/user_profile.dart';
@@ -117,12 +118,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           "Hottest discount",
                           style: TextStyle(
                             fontWeight: FontWeight.w900,
-                            fontSize: 20,
+                            fontSize: 28,
                           ),
                         ),
                         Text(
                           "See all",
-                          style: TextStyle(color: Colors.deepOrangeAccent),
+                          style: TextStyle(
+                              color: Colors.deepOrangeAccent, fontSize: 20),
                         ),
                       ],
                     ),
@@ -132,45 +134,68 @@ class _HomeScreenState extends State<HomeScreen> {
                           shrinkWrap: true,
                           itemCount: 4,
                           itemBuilder: (context, index) {
-                            return Container(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(10),
-                                    child: Image.network(
-                                        "https://picsum.photos/200/200",
-                                        height: 50),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "31 mi * 12 min",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w100,
-                                          fontSize: 14,
-                                          color: Colors.grey.withOpacity(0.5),
+                            return InkWell(
+                              onTap: () => context.push('/details'),
+                              child: Padding(
+                                padding: EdgeInsets.all(18),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 100,
+                                      width: 100,
+                                      padding: EdgeInsets.only(right: 20),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(5),
+                                        ),
+                                        image: DecorationImage(
+                                          image: NetworkImage(
+                                              "https://picsum.photos/700/700",scale: 4),
                                         ),
                                       ),
-                                      Text(
-                                        "Title",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w900,
-                                          fontSize: 18,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "31 mi \u2022 12 min",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w100,
+                                            fontSize: 14,
+                                            color: Colors.grey.withOpacity(0.5),
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        "* 4.8 * 225 sold",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w100,
-                                          fontSize: 14,
-                                          color: Colors.grey.withOpacity(0.5),
+                                        Text(
+                                          "Sushi rokude sone #00${index + 1}",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            fontSize: 18,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  )
-                                ],
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.star,
+                                              size: 12,
+                                              color: Colors.yellow,
+                                            ),
+                                            Text(
+                                              "4.8 \u2022 225 sold",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w100,
+                                                fontSize: 14,
+                                                color:
+                                                    Colors.grey.withOpacity(0.5),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             );
                           }),
