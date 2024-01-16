@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:smkdev/components/home/category_component.dart';
 import 'package:smkdev/components/home/search_component.dart';
 import 'package:smkdev/components/home/user_profile.dart';
+import 'package:smkdev/utils/supabase_proxy.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -67,6 +68,17 @@ class _HomeScreenState extends State<HomeScreen> {
       'sold': 100
     }
   ];
+
+  Future<void> getHottestDiscount() async {
+    final hottestDiscount = SupabaseProxy.fetchData(tableName: 'stores');
+    print(hottestDiscount);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getHottestDiscount();
+  }
 
   @override
   Widget build(BuildContext context) {

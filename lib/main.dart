@@ -4,8 +4,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:smkdev/utils/routers.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() => runApp(FoodApp());
+Future<void> main() async {
+  await Supabase.initialize(
+    url: 'https://ksqmfufktupuoeqiubnm.supabase.co',
+    anonKey: const String.fromEnvironment('SECRET_KEY'),
+  );
+
+  runApp(FoodApp());
+}
 
 class FoodApp extends StatelessWidget {
   @override
